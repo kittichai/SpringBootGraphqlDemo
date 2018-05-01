@@ -1,0 +1,505 @@
+schema {
+ query : Query
+ mutation : Mutation
+}
+
+type Query {
+
+    # This is search customer
+    searchCustomer(filter: CustomerFilter): [Customer]
+    
+	# This find by custormerId 
+    findByCustomerid(customerId: Int): [Customer]
+    # This find by operatorId 
+    findByOperatorid(operatorId: Int): [Customer]
+    
+    findBySubscriberId(subscriber_id: String): [Subscriber]
+    
+    findChargeDistributeById(charge_distributeId: Int): [ChargeDistribute]
+    
+    findCsmAccountById(charge_distributeId: Int): [CsmAccount]
+    
+    findCsmPayChannelId(csmPayChannelId: Int): [CsmPayChannel]
+    
+    findChargeDistributeByTrackingId(id: String): [ChargeDistribute]
+    
+}
+
+input CustomerFilter {
+  customerId: Int
+  operatorId: Int
+  certification : String
+  customerType : String
+}
+
+type Mutation {
+    # This is search customer
+    createCustomer(customer : CustomerInput!): Customer
+    updateCustomer(customer : CustomerInput!): Customer
+}
+
+input CustomerInput {
+    anniversaryEndDay: Int
+	applicationId: String
+	assistantUserId: Int
+	billCycProdFreq: Int
+	billCycle: Int
+	businessEntityId: Int
+	chNodeId: Int
+	chgCycReqDate: String
+	chgCycleInd: String
+	chgCycleReqSts: String
+	convRunNo: Int
+	creditClass: String
+	custSubType: String
+	customerType: String
+	dealerCode: String
+	dfltPostPcn: Int
+	dfltPrePcn: Int
+	dlServiceCode: String
+	dlUpdateStamp: Int
+	effectiveDate: String
+	entityLockType: String
+	expirationDate: String
+	externalId: String
+	financialLockType: String
+	l3AlarmNofifType: String
+	l3AlarmNotifThreshold: Int
+	l3CrdLmtThreshold: Int
+	l3CreditLimitInd: String
+	l9BirthDate: String
+	l9BlacklistInd: String
+	l9BusinessType: String
+	l9ContactLang: String
+	l9Education: String
+	l9EmployeeCode: String
+	l9EmploymentStatus: String
+	l9Grading: String
+	l9Identification: String
+	l9IdentificationExpDate: String
+	l9IdentificationType: String
+	l9IndustryType: String
+	l9InitTimeInAdd: String
+	l9JobType: String
+	l9Nationality: String
+	l9NoOfEmployees: String
+	l9Occupation: String
+	l9PeriodOfWork: String
+	l9Salary: String
+	l9SystemId: String
+	l9TimeInBusiness: String
+	l9TotalSubscriber: String
+	l9TrueId: String
+	l9UserId: String
+	largeCustInd: String
+	lastActivityCode: String
+	lastActivityReasonCode: String
+	legacyCustNo: String
+	marketingChannel: String
+	newCycProdFreq: String
+	newCycle: String
+	newOnlinePartitionId: String
+	newPartitionId: String
+	offerCurrency: String
+	onlinePartitionId: String
+	openDate: String
+	partitionId: Int
+	resourcePool: String
+	spcMemoInd: String
+	sysCreationDate: String
+	sysUpdateDate: String
+	# This custormer identification  
+	customerId	:	Int
+	# This operator identification 
+	operatorId	:	Int
+	subscribers: SubscriberInput
+}
+
+input SubscriberInput{    
+	applicationId: String
+	businessEntityId: String
+	calcPymCategory: String
+	chNodeId: String
+	convRunNo: String
+	dealerCode: String
+	dlServiceCode: String
+	dlUpdateStamp: String
+	effectiveDate: String
+	expirationDate: String
+	externalId: String
+	initActDate: String
+	initialDlrCode: String
+	insTrxId: String
+	l3FirstRechargeIndicator: String
+	l9AddrBadDebtFlag: String
+	l9AddrFrdFlag: String
+	l9BarByRater: String
+	l9BarringActDate: String
+	l9BarringActRsn: String
+	l9BarringByReq: String
+	l9ColLastActDate: String
+	l9ColRsnCd: String
+	l9ColStatus: String
+	l9ConvergenceCode: String
+	l9CrdLastActDate: String
+	l9CrdLmSubActDate: String
+	l9CrdLmSubRsnCd: String
+	l9CrdRsnCd: String
+	l9CrdStatus: String
+	l9DealerApp: String
+	l9DonorOperator: String
+	l9DonorZone: String
+	l9ImsiAlias: String
+	l9InstallationType: String
+	l9LastActivityId: String
+	l9MarketingCode: String
+	l9MultiSimInd: String
+	l9PhaseCode: String
+	l9PortInd: String
+	l9ProjectCode: String
+	l9ProofDate: String
+	l9ProofDoc: String
+	l9RecOperator: String
+	l9RecZone: String
+	l9RelatedSubscriber: String
+	l9RfActDate: String
+	l9RfBan: String
+	l9RfServiceLevel: String
+	l9RmvActDate: String
+	l9RmvBan: String
+	l9RmvServiceLevel: String
+	l9SaleChannel: String
+	l9SaleId: String
+	l9SmsInd: String
+	l9SmsLanguage: String
+	l9SplitPeriod: String
+	l9TmvActDate: String
+	l9TmvBan: String
+	l9TmvServiceLevel: String
+	l9TrueLifeId: String
+	language: String
+	linkNextSubNo: String
+	linkPrevSubNo: String
+	operatorId: String
+	origActDate: String
+	primResParamCd: String
+	primResourceTp: String
+	primResourceVal: String
+	requiredPartition: String
+	routingPolicyId: String
+	subPassword: String
+	subSeqNo: String
+	subStatus: String
+	subStatusDate: String
+	subStsIssueDate: String
+	subStsLastAct: String
+	subStsRsnCd: String
+	subscriberNo: String
+	subscriberType: String
+	sysCreationDate: String
+	sysUpdateDate: String
+	trxId: String
+}
+
+type Customer {
+	anniversaryEndDay: Int
+	applicationId: String
+	assistantUserId: Int
+	billCycProdFreq: Int
+	billCycle: Int
+	businessEntityId: Int
+	chNodeId: Int
+	chgCycReqDate: String
+	chgCycleInd: String
+	chgCycleReqSts: String
+	convRunNo: Int
+	creditClass: String
+	custSubType: String
+	customerType: String
+	dealerCode: String
+	dfltPostPcn: Int
+	dfltPrePcn: Int
+	dlServiceCode: String
+	dlUpdateStamp: Int
+	effectiveDate: String
+	entityLockType: String
+	expirationDate: String
+	externalId: String
+	financialLockType: String
+	l3AlarmNofifType: String
+	l3AlarmNotifThreshold: Int
+	l3CrdLmtThreshold: Int
+	l3CreditLimitInd: String
+	l9BirthDate: String
+	l9BlacklistInd: String
+	l9BusinessType: String
+	l9ContactLang: String
+	l9Education: String
+	l9EmployeeCode: String
+	l9EmploymentStatus: String
+	l9Grading: String
+	l9Identification: String
+	l9IdentificationExpDate: String
+	l9IdentificationType: String
+	l9IndustryType: String
+	l9InitTimeInAdd: String
+	l9JobType: String
+	l9Nationality: String
+	l9NoOfEmployees: String
+	l9Occupation: String
+	l9PeriodOfWork: String
+	l9Salary: String
+	l9SystemId: String
+	l9TimeInBusiness: String
+	l9TotalSubscriber: String
+	l9TrueId: String
+	l9UserId: String
+	largeCustInd: String
+	lastActivityCode: String
+	lastActivityReasonCode: String
+	legacyCustNo: String
+	marketingChannel: String
+	newCycProdFreq: String
+	newCycle: String
+	newOnlinePartitionId: String
+	newPartitionId: String
+	offerCurrency: String
+	onlinePartitionId: String
+	offerCurrency: String
+	onlinePartitionId: String
+	openDate: String
+	partitionId: Int
+	resourcePool: String
+	spcMemoInd: String
+	sysCreationDate: String
+	sysUpdateDate: String
+	# This custormer identification  
+	customerId	:	Int
+	# This operator identification 
+	operatorId	:	Int
+	subscribers: [Subscriber]
+}
+
+type Subscriber {
+	applicationId: String
+	businessEntityId: String
+	calcPymCategory: String
+	chNodeId: String
+	convRunNo: String
+	dealerCode: String
+	dlServiceCode: String
+	dlUpdateStamp: String
+	effectiveDate: String
+	expirationDate: String
+	externalId: String
+	initActDate: String
+	initialDlrCode: String
+	insTrxId: String
+	l3FirstRechargeIndicator: String
+	l9AddrBadDebtFlag: String
+	l9AddrFrdFlag: String
+	l9BarByRater: String
+	l9BarringActDate: String
+	l9BarringActRsn: String
+	l9BarringByReq: String
+	l9ColLastActDate: String
+	l9ColRsnCd: String
+	l9ColStatus: String
+	l9ConvergenceCode: String
+	l9CrdLastActDate: String
+	l9CrdLmSubActDate: String
+	l9CrdLmSubRsnCd: String
+	l9CrdRsnCd: String
+	l9CrdStatus: String
+	l9DealerApp: String
+	l9DonorOperator: String
+	l9DonorZone: String
+	l9ImsiAlias: String
+	l9InstallationType: String
+	l9LastActivityId: String
+	l9MarketingCode: String
+	l9MultiSimInd: String
+	l9PhaseCode: String
+	l9PortInd: String
+	l9ProjectCode: String
+	l9ProofDate: String
+	l9ProofDoc: String
+	l9RecOperator: String
+	l9RecZone: String
+	l9RelatedSubscriber: String
+	l9RfActDate: String
+	l9RfBan: String
+	l9RfServiceLevel: String
+	l9RmvActDate: String
+	l9RmvBan: String
+	l9RmvServiceLevel: String
+	l9SaleChannel: String
+	l9SaleId: String
+	l9SmsInd: String
+	l9SmsLanguage: String
+	l9SplitPeriod: String
+	l9TmvActDate: String
+	l9TmvBan: String
+	l9TmvServiceLevel: String
+	l9TrueLifeId: String
+	language: String
+	linkNextSubNo: String
+	linkPrevSubNo: String
+	operatorId: String
+	origActDate: String
+	primResParamCd: String
+	primResourceTp: String
+	primResourceVal: String
+	requiredPartition: String
+	routingPolicyId: String
+	subPassword: String
+	subSeqNo: String
+	subStatus: String
+	subStatusDate: String
+	subStsIssueDate: String
+	subStsLastAct: String
+	subStsRsnCd: String
+	subscriberNo: String
+	subscriberType: String
+	sysCreationDate: String
+	sysUpdateDate: String
+	trxId: String
+}
+
+type ChargeDistribute {
+	agrLevel: String
+	agreementNo: String
+	applicationId: String
+	chgSplitType: String
+	convRunNo: String
+	distributionNo: String
+	dlServiceCode: String
+	dlUpdateStamp: String
+	effIssueDate: String
+	effectiveDate: String
+	expIssueDate: String
+	expirationDate: String
+	insTrxId: String
+	operatorId: String
+	socSeqNo: String
+	sourceAgrNo: String
+	sysCreationDate: String
+	sysUpdateDate: String
+	targetPcn: String
+	trxId: String
+}
+
+type CsmAccount {
+	acctBalPolicy: String
+	applicationId: String
+	billingCurrency: String
+	businessEntityId: String
+	collFixCsrCd: String
+	collFixPolicyCd: String
+	collInd: String
+	collPrmtWaveInd: String
+	collPunishmentLevels: String
+	collStartDate: String
+	collStatus: String
+	convRunNo: String
+	customerId: String
+	dlServiceCode: String
+	dlUpdateStamp: String
+	documentType: String
+	externalId: String
+	fullSuspensionInd: String
+	l3SuspensionRsn: String
+	l9AccStsBan: String
+	l9AccSubType: String
+	l9AccountPriority: String
+	l9AgreementId: String
+	l9AtbCharityCode: String
+	l9AutoBlacklistInd: String
+	l9AutoBlacklistRsnCd: String
+	l9AutoBlacklistUpDate: String
+	l9ClWaiverUpdDate: String
+	l9ColLastActDate: String
+	l9ColRsnCd: String
+	l9ColStatus: String
+	l9CollWaiverExpDate: String
+	l9CompanyCode: String
+	l9ConvEffectiveDate: String
+	l9ConvergenceCode: String
+	l9CrdLastActDate: String
+	l9CrdLmtFixPolicyCd: String
+	l9CrdLmtWaiverExpDate: String
+	l9CrdLmtWaiverInd: String
+	l9CrdRsnCd: String
+	l9CrdStatus: String
+	l9CreditClass: String
+	l9CreditClassUpdDate: String
+	l9CreditLimitExpDate: String
+	l9CreditLimitRsnCode: String
+	l9CustBranchNo: String
+	l9CustTaxId: String
+	l9IddIndicator: String
+	l9InitiationReason: String
+	l9IrIndicator: String
+	l9LegacyBan: String
+	l9ManualBlacklistInd: String
+	l9ManualBlacklistRsnCd: String
+	l9ManualBlacklistUpDate: String
+	l9OblgCalcFormUpdDate: String
+	l9ObligationCalcFormula: String
+	l9OperatorId: String
+	l9OperatorName: String
+	l9ParentBan: String
+	l9PersonalClUpdDate: String
+	l9PrsnlCreditLimit: String
+	l9RelatedOu: String
+	l9SpecialInstructions: String
+	l9TempClUpdDate: String
+	l9TempCreditLimit: String
+	l9WhtCertiNo: String
+	l9WhtInd: String
+	l9WhtTaxUpDate: String
+	openDate: String
+	operatorId: String
+	suspentionType: String
+	sysCreationDate: String
+	sysUpdateDate: String
+}
+
+type CsmPayChannel {
+	applicationId: String
+	bankAcctNo: String
+	bankAcctType: String
+	bankBranchNo: String
+	bankCode: String
+	benNumber: String
+	businessEntityId: String
+	convRunNo: String
+	creditCardExpDt: String
+	creditCardNo: String
+	creditCardType: String
+	customerId: String
+	dlServiceCode: String
+	dlUpdateStamp: String
+	externalId: String
+	issueDate: String
+	l9BankBranchName: String
+	l9BankName: String
+	l9DdApprovalDate: String
+	openDate: String
+	operatorId: String
+	paymentCategory: String
+	paymentMethod: String
+	paymentType: String
+	pcnDesc: String
+	pcnNumber: String
+	pcnStatus: String
+	pinNumber: String
+	pymChannelNo: String
+	pymOwnerDet: String
+	recurrFreq: String
+	recurrFreqVal: String
+	recurrPymAmt: String
+	statusDate: String
+	sysCreationDate: String
+	sysUpdateDate: String
+}
