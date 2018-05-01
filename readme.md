@@ -1,7 +1,7 @@
-#Readme__
-Example.__
-#################################################__
-#1.1 Query searchCustomer__
+#Readme
+Example.\
+#################################################\
+#1.1 Query searchCustomer
 query searchCustomer($input: CustomerFilter!){
 
   searchCustomerByCusttypeAndCert: searchCustomer(filter:$input){
@@ -12,8 +12,8 @@ query searchCustomer($input: CustomerFilter!){
          operatorId
       }
   }
-}__
-#Query variable__
+}
+#Query variable
 {
   "input" : {
                 "customerType": "I"
@@ -21,7 +21,7 @@ query searchCustomer($input: CustomerFilter!){
            }
 }
 #######################__
-#1.2 mutation createCustomer__
+#1.2 mutation createCustomer
 mutation createCustomer($input: CustomerInput!){
 
   createCustomer(customer:$input){
